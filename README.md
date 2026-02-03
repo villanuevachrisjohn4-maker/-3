@@ -8,59 +8,41 @@
 </head>
 <body>
 
-<!-- Background Music -->
+<!-- Background Music (plays on open) -->
 <audio id="bg-music" loop>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <div class="container">
-  <!-- Envelope starts CLOSED -->
-  <div class="envelope">
+  <!-- Envelope (CLICK TO OPEN) -->
+  <div class="envelope" id="envelope">
 
     <!-- Back of envelope -->
     <div class="envelope-back"></div>
 
-    <!-- Card (inside) -->
+    <!-- Card inside -->
     <div class="card-wrapper">
       <div class="card">
         <h1>3rd<br><span>Monthsary</span></h1>
 
-        <div class="card-body" id="typed-text">
-          <p>
-            Three months may not seem like a long time, but to me, it already
-            feels like we’ve built something really special.
-          </p>
+        <!-- TYPEWRITER TARGET -->
+        <div
+          class="card-body"
+          id="typed-text"
+          data-text="
+Three months may not seem like a long time, but to me, it already feels like we’ve built something really special.
 
-          <p>
-            In just a short time, you’ve become someone I look forward to every
-            day—someone who makes my ordinary moments feel brighter and my heavy
-            days feel lighter.
-          </p>
+In just a short time, you’ve become someone I look forward to every day someone who makes my ordinary moments feel brighter and my heavy days feel lighter.
 
-          <p>
-            Thank you for being patient with me, for understanding me, and for
-            choosing me even when things aren’t perfect. I love how you care so
-            deeply, and how you make me feel safe just by being you.
-          </p>
+Thank you for being patient with me, for understanding me, and for choosing me even when things aren’t perfect. I love how you care so deeply, and how you make me feel safe just by being you.
 
-          <p>
-            Being with you has taught me what it means to love gently, honestly,
-            and wholeheartedly.
-          </p>
+Being with you has taught me what it means to love gently, honestly, and wholeheartedly.
 
-          <p>
-            These past three months have given me so many memories I’ll always
-            treasure, and they’ve made me excited for everything that’s still
-            ahead of us.
-          </p>
+These past three months have given me so many memories I’ll always treasure, and they’ve made me excited for everything that’s still ahead of us.
 
-          <p>
-            If this is just the beginning, then I can’t wait to see how much
-            more we’ll grow together. ❤️
-          </p>
-
-          <p>I choose you now and forever. ❤️</p>
-        </div>
+If this is just the beginning, then I can’t wait to see how much more we’ll grow together, I choose you now and forever.❤️
+"
+        ></div>
       </div>
     </div>
 
@@ -70,7 +52,7 @@
     <!-- Flap -->
     <div class="envelope-flap"></div>
 
-    <!-- Heart Seal -->
+    <!-- Heart seal -->
     <div class="heart-seal"></div>
 
   </div>
