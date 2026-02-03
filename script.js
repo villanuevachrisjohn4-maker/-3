@@ -1,5 +1,4 @@
-const envelope = document.querySelector(".envelope");
-const flap = document.querySelector(".envelope-flap");
+const envelope = document.getElementById("envelope");
 const music = document.getElementById("bg-music");
 const textBox = document.getElementById("typed-text");
 
@@ -11,11 +10,9 @@ envelope.addEventListener("click", () => {
 
   envelope.classList.add("open");
 
-  // Start music gently
   music.volume = 0.6;
   music.play();
 
-  // Delay typing until envelope opens
   setTimeout(startTyping, 900);
 });
 
@@ -25,7 +22,7 @@ function startTyping() {
   textBox.classList.add("type-cursor");
 
   let index = 0;
-  const speed = 28; // soft cinematic pace
+  const speed = 28;
 
   function type() {
     if (index < fullText.length) {
