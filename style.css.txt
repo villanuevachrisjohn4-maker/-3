@@ -1,0 +1,120 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background: #0f172a;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  position: relative;
+}
+
+.envelope {
+  width: 320px;
+  height: 220px;
+  position: relative;
+  cursor: pointer;
+}
+
+.envelope-lid {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 160px solid transparent;
+  border-right: 160px solid transparent;
+  border-top: 110px solid #dc2626;
+  top: 0;
+  z-index: 3;
+  transition: transform 0.6s;
+  transform-origin: top;
+}
+
+.envelope-lid-secondary {
+  border-top-color: #b91c1c;
+  z-index: 1;
+}
+
+.card-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #fca5a5;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.card {
+  background: white;
+  width: 90%;
+  height: 90%;
+  margin: auto;
+  position: relative;
+  top: 10px;
+  padding: 20px;
+  transition: transform 0.6s;
+}
+
+.card-title {
+  text-align: center;
+  color: #dc2626;
+}
+
+.card-title-main {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.card-title-secondary {
+  font-size: 18px;
+}
+
+.card-body p {
+  color: #111827;
+  font-size: 14px;
+  margin: 8px 0;
+}
+
+.heart-seal {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  background: red;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.heart-seal::before,
+.heart-seal::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: red;
+  border-radius: 50%;
+}
+
+.heart-seal::before {
+  top: -15px;
+  left: 0;
+}
+
+.heart-seal::after {
+  left: -15px;
+  top: 0;
+}
+
+/* OPEN EFFECT */
+.envelope.open .envelope-lid {
+  transform: rotateX(180deg);
+}
+
+.envelope.open .card {
+  transform: translateY(-60px);
+}
