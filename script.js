@@ -1,45 +1,58 @@
-// AUTO OPEN + MUSIC
-window.addEventListener("load", () => {
-  const music = document.getElementById("bg-music");
-  music.volume = 0.5;
+const envelope = document.querySelector(".envelope");
+const flap = document.querySelector(".envelope-flap");
+const music = document.getElementById("bg-music");
+const textBox = document.getElementById("typed-text");
 
-  // Mobile autoplay fix
-  document.body.addEventListener("click", () => {
-    music.play();
-  }, { once: true });
+let opened = false;
 
-  typeText();
-  createHearts();
+envelope.addEventListener("click", () => {
+  if (opened) return;
+  opened = true;
+
+  envelope.classList.add("open");
+
+  // Start music gently
+  music.volume = 0.6;
+  music.play();
+
+  // Delay typing until envelope opens
+  setTimeout(startTyping, 900);
 });
 
-// TYPING ANIMATION
-function typeText() {
-  const container = document.getElementById("typed-text");
-  const text = container.innerHTML;
-  container.innerHTML = "";
-  let i = 0;
+function startTyping() {
+  const fullText = textBox.dataset.text.trim();
+  textBox.innerHTML = "";
+  textBox.classList.add("type-cursor");
 
-  function typing() {
-    if (i < text.length) {
-      container.innerHTML += text.charAt(i);
-      i++;
-      setTimeout(typing, 20);
+  let index = 0;
+  const speed = 28; // soft cinematic pace
+
+  function type() {
+    if (index < fullText.length) {
+      if (fullText[index] === "\n") {
+        textBox.innerHTML += "<br><br>";
+      } else {
+        textBox.innerHTML += fullText[index];
+      }
+      index++;
+      setTimeout(type, speed);
+    } else {
+      textBox.classList.remove("type-cursor");
     }
   }
-  typing();
+
+  type();
 }
 
-// FLOATING HEARTS
-function createHearts() {
-  const hearts = document.getElementById("hearts");
+/* FLOATING HEARTS */
+const hearts = document.getElementById("hearts");
 
-  setInterval(() => {
-    const heart = document.createElement("span");
-    heart.innerHTML = "❤️";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (4 + Math.random() * 3) + "s";
-    hearts.appendChild(heart);
+setInterval(() => {
+  const heart = document.createElement("span");
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 10 + 14 + "px";
+  hearts.appendChild(heart);
 
-    setTimeout(() => heart.remove(), 7000);
-  }, 500);
-}
+  setTimeout(() => heart.remove(), 6000);
+}, 700);
